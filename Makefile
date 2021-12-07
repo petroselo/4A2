@@ -18,9 +18,10 @@ FC = gfortran
 FFLAGS = -g
 
 # select the optimising option by delete # in the following line
+#
 #FFLAGS = -O2
 
-# comiple the executable and name it "Euler" using "-o"
+# compile the executable and name it "Euler" using "-o"
 euler : $(OBS)
 	$(FC)  $(FFLAGS) -o Euler  $(OBS)  
 
@@ -49,3 +50,32 @@ extract:
 # compile .f90 to .o
 %.o:%.f90
 	$(FC) $(FFLAGS) -c $^ -o $@
+
+# Set flow and geom files.
+0:
+	cp test0_flow flow
+	cp test0_geom geom
+
+1:
+	cp test1_flow flow
+	cp test1_geom geom
+
+2:
+	cp test2_flow flow
+	cp test2_geom geom
+
+3:
+	cp test3_flow flow
+	cp test3_geom geom
+
+4:
+	cp test4_flow flow
+	cp test4_geom geom
+
+5:
+	cp test5_flow flow
+	cp test5_geom geom
+
+straight:	
+	cp test_straight_flow flow
+	cp test_straight_geom geom

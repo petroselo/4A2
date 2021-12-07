@@ -22,7 +22,7 @@
       do i=1,ni
         flow(i) = 0.0
         do j=1,nj-1
-          fluxi_mass(i,j) = 0.5*( (rovx(i,j)+rovx(i,j+1))*dlix(i,j) +  &
+          fluxi_mass(i,j) = 0.5*( (rovx(i,j)+rovx(i,j+1))*dlix(i,j) + &
                                   (rovy(i,j)+rovy(i,j+1))*dliy(i,j) )
           flow(i) = flow(i) + fluxi_mass(i,j)
         end do
@@ -66,7 +66,7 @@
 ! Calculate the fluxes of y-momentum
       do i=1,ni
         do j=1,nj-1
-          fluxi_ymom(i,j) = 0.5*( fluxi_mass(i,j)*(vy(i,j)+vy(i,j+1)) +  &
+          fluxi_ymom(i,j) = 0.5*( fluxi_mass(i,j)*(vy(i,j)+vy(i,j+1)) + &
                                 (p(i,j)+p(i,j+1))*dliy(i,j)   )
         end do
       end do
