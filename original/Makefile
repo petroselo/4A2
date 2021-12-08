@@ -15,11 +15,11 @@ FC = gfortran
 # Option of Compilation
 
 # debug option
-FFLAGS = -g
+#FFLAGS = -g
 
 # select the optimising option by delete # in the following line
 #
-#FFLAGS = -O2
+FFLAGS = -O2
 
 # compile the executable and name it "Euler" using "-o"
 euler : $(OBS)
@@ -53,29 +53,29 @@ extract:
 
 # Set flow and geom files.
 0:
-	cp test0_flow flow
-	cp test0_geom geom
+	cp ../testcases/test0_flow flow
+	cp ../testcases/test0_geom geom
 
 1:
-	cp test1_flow flow
-	cp test1_geom geom
+	cp ../testcases/test1_flow flow
+	cp ../testcases/test1_geom geom
 
 2:
-	cp test2_flow flow
-	cp test2_geom geom
+	cp ../testcases/test2_flow flow
+	cp ../testcases/test2_geom geom
 
 3:
-	cp test3_flow flow
-	cp test3_geom geom
+	cp ../testcases/test3_flow flow
+	cp ../testcases/test3_geom geom
 
 4:
-	cp test4_flow flow
-	cp test4_geom geom
+	cp ../testcases/test4_flow flow
+	cp ../testcases/test4_geom geom
 
 5:
-	cp test5_flow flow
-	cp test5_geom geom
+	cp ../testcases/test5_flow flow
+	cp ../testcases/test5_geom geom
 
 straight:	
-	cp test_straight_flow flow
-	cp test_straight_geom geom
+	cp ../testcases/test_straight_flow flow
+	cp ../testcases/test_straight_geom geom

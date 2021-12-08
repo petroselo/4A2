@@ -24,6 +24,11 @@
 
       halfvsq = 0.5 * (vx**2 + vy**2)
       
+      ! Constant stagnation enthalpy
+      ! p = ro R Tstatic
+      ! hstag = cp * tstagin
+      ! Can we then also remove some of the flux calculations?
+
       p = (gamma - 1) * (roe - halfvsq*ro)
       hstag = (roe + p) / ro
 
