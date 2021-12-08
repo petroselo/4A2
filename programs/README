@@ -1,0 +1,2 @@
+These can be moved into your own /usr/local/bin to call them easily. 
+Might need to mess around and install fortran lib3 or something to get it to work. Error message and an internet search should contain all you need to solve this.
