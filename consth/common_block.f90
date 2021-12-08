@@ -25,7 +25,7 @@ module common_block
       character(LEN=80) :: title
 
 ! Gas Properties
-      real ::    rgas, gamma, cp, cv, fga
+      real ::    rgas, gamma, cp, cv, fga, oneover2Cp
 
 ! Primary Variables (Values at nodes)
       real, dimension(i_max,j_max)  ::  ro, rovx, rovy, roe

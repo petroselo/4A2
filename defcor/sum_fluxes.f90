@@ -1,4 +1,4 @@
-      subroutine sum_fluxes(iflux, jflux, delprop, prop_inc)
+      subroutine sum_fluxes(iflux, jflux, delprop, prop_inc, tfrac)
 
       use common_block
 
@@ -10,30 +10,15 @@
 
       real, dimension(i_max,j_max) ::  iflux, jflux, prop_inc, delprop,  &
                                        previous, store
-!      real :: frkut
+      real :: tfrac
 
 ! Local stuff
       integer ::    i, j
 
-! Note previous changes prior to updating them (used with second order timesteps)
-! N.B. These are cell quantities.  N.B. There are ni-1 x nj-1 cells.
-
-      ! do i=1,ni-1
-      !   do j=1,nj-1
-      !     previous(i,j) = delprop(i,j)
-      !   end do
-      ! end do
-
 ! Find the change in the variable "prop" in each cell over the
 ! time step "deltat" and save it in "delprop(i,j)".
 
-  !    do i=1,ni-1
-  !      do j=1,nj-1
-  !        delprop(i,j) =   (deltat / area(i,j)) *  ( iflux(i,j) + jflux(i,j) - iflux(i+1,j) - jflux(i,j+1) )
-  !      end do
- !     end do
-
-      delprop(1:ni-1, 1:nj-1) = ( deltat / area(1:ni-1, 1:nj-1) ) * &
+      delprop(1:ni-1, 1:nj-1) = ( tfrac * deltat / area(1:ni-1, 1:nj-1) ) * &
                                 ( iflux(1:ni-1, 1:nj-1) &
                                 + jflux(1:ni-1, 1:nj-1) &
                                 - iflux(2:ni, 1:nj-1)  &
