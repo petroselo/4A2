@@ -46,6 +46,7 @@
       read(2,*) pstagin, tstagin, alpha1, pdown
       read(2,*) cfl, smooth_fac_in
       read(2,*) nsteps, conlim_in
+      read(2,*) fcorr
       
 
 ! Set some other variables that will be used throughout the

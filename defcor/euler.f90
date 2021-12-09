@@ -74,10 +74,6 @@
         end do
 
 
-
-
-        
-!
 ! Update solution
 
         do i=1,ni
@@ -90,9 +86,9 @@
 
 ! Smooth the problem to ensure it remains stable.
 
-        call smooth(ro)
-        call smooth(rovx)
-        call smooth(rovy)
+        call smooth(ro, corr_ro)
+        call smooth(rovx, corr_rovx)
+        call smooth(rovy, corr_rovy)
 
 ! Check convergence and write out summary every 5 steps
 
