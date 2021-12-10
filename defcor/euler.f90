@@ -71,7 +71,7 @@
           call sum_fluxes(fluxi_xmom, fluxj_xmom, delrovx, rovx_inc, frkut)
           call sum_fluxes(fluxi_ymom, fluxj_ymom, delrovy, rovy_inc, frkut)
  
-        end do
+        
 
 
 ! Update solution
@@ -89,6 +89,8 @@
         call smooth(ro, corr_ro)
         call smooth(rovx, corr_rovx)
         call smooth(rovy, corr_rovy)
+
+      end do
 
 ! Check convergence and write out summary every 5 steps
 

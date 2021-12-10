@@ -80,7 +80,7 @@
           call smooth(rovx)
           call smooth(rovy)
 
-        end do 
+        end do
 
 ! Check convergence and write out summary every 5 steps
 
