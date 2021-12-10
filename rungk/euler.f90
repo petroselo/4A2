@@ -27,10 +27,6 @@
       !call output_mat(1)
       !call output(1)
 
-! "set_timestep": to set the length of the timestep.
-! initially this is a constant time step based on a conservative guess
-! of the mach number.
-
       call set_timestep
 
       conv_check_steps = 5
@@ -58,7 +54,7 @@
         
         do nrkut = 1,nrkut_max
           
-          frkut = 1./(1.+nrkut_max - nrkut)
+          frkut = 1./(1+nrkut_max - nrkut)
           
           call set_others
 
@@ -70,29 +66,21 @@
           call sum_fluxes(fluxi_mass, fluxj_mass, delro  , ro_inc  , frkut)
           call sum_fluxes(fluxi_xmom, fluxj_xmom, delrovx, rovx_inc, frkut)
           call sum_fluxes(fluxi_ymom, fluxj_ymom, delrovy, rovy_inc, frkut)
- 
-        end do
 
-
-
-
-        
-!
-! Update solution
-
-        do i=1,ni
-          do j=1,nj
-            ro  (i,j) = ro_start  (i,j) + ro_inc  (i,j)
-            rovx(i,j) = rovx_start(i,j) + rovx_inc(i,j)
-            rovy(i,j) = rovy_start(i,j) + rovy_inc(i,j)
+          ! Add increment to starting value
+          do i=1,ni
+            do j=1,nj
+              ro  (i,j) = ro_start  (i,j) + ro_inc  (i,j)
+              rovx(i,j) = rovx_start(i,j) + rovx_inc(i,j)
+              rovy(i,j) = rovy_start(i,j) + rovy_inc(i,j)
+            end do
           end do
-        end do
 
-! Smooth the problem to ensure it remains stable.
+          call smooth(ro)
+          call smooth(rovx)
+          call smooth(rovy)
 
-        call smooth(ro)
-        call smooth(rovx)
-        call smooth(rovy)
+        end do 
 
 ! Check convergence and write out summary every 5 steps
 
