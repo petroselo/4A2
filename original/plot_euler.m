@@ -1,5 +1,6 @@
 close all;
 clear
+set(0,'defaultfigurepaperpositionmode','auto');
 fin = fopen('euler.mat','r');
 data = fscanf(fin,'%f');
 ni = data(1,1);
@@ -82,5 +83,9 @@ daspect([1 1 1]);
 contourf(x,y,mach,20,'LineWidth',2);
 plot(x(:,1),y(:,1),'b','Linewidth',1);
 plot(x(:,nj),y(:,nj),'b','LineWidth',1);
+xlabel('x')
+ylabel('y')
+title('Mach number')
+colorbar()
 machmax = max(max(mach))
 machmin = min(min(mach))

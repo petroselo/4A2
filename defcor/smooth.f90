@@ -18,7 +18,7 @@
       integer  ::  i, j, ip1, im1
 
 ! Deferred corrections
-      real :: corrnew
+      real :: corrnew, corrnew1, corrnewnj
 
 ! To avoid using already smoothed values for smoothing other values
 ! the smoothed values are initially stored in an array "store".
@@ -45,17 +45,22 @@
 
 
            store(i,j) = sfm1*prop(i,j) + sf*( avg + corr_prop(i,j) )
-         enddo
+         end do
 
 ! On the surfaces j=1 and j=nj take the average as shown below.
 
          avg1  = (prop(im1,1)  + prop(ip1,1)  + 2.*prop(i,2)    - prop(i,3)    ) / 3.0
+         corrnew1 = fcorr * ( prop(i,1) - avg1 )
+         corr_prop(i,1) = .99 * corr_prop( i,1 ) + 0.01 * corrnew1
+
          avgnj = (prop(im1,nj) + prop(ip1,nj) + 2.*prop(i,nj-1) - prop(i,nj-2) ) / 3.0
+         corrnewnj = fcorr * ( prop(i,nj) - avgnj )
+         corr_prop(i,nj) = .99 * corr_prop( i,nj ) + 0.01 * corrnewnj
 
-         store(i,1) = sfm1*prop(i,1) + sf*avg1
-         store(i,nj) = sfm1*prop(i,nj) + sf*avgnj
+         store(i,1) = sfm1*prop(i,1) + sf*( avg1 + corr_prop(i,1) )
+         store(i,nj) = sfm1*prop(i,nj) + sf*( avgnj + corr_prop(i,nj) )
 
-      enddo
+      end do
 
 ! Set prop to the smoothed value before returning to the main program.
 
