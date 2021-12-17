@@ -20,8 +20,8 @@
       call check_grid
 
      !call crude_guess
-     !call flow_guess
-      call new_guess
+     !call flow_guess#
+     call new_guess
 
 ! "output" here to plot out your initial guess of the flow field.
       !call output_hg(ro,1)

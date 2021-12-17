@@ -73,19 +73,15 @@ for i=1:ni
   end 
 end
 %
-figure('Name','Stagnation Pressure');
-hold on
-daspect([1 1 1]);
-contourf(x,y,p0,20,'LineWidth',1);
-plot(x(:,1),y(:,1),'b','Linewidth',1);
-plot(x(:,nj),y(:,nj),'b','LineWidth',1);
-xlabel('x')
-ylabel('y')
-title('Stagnation pressure')
-colorbar()
-p0max = max(max(p0));
-p0min = min(min(p0));
-
+% figure('Name','Stagnation Pressure');
+% hold on
+% daspect([1 1 1]);
+% contourf(x,y,p0,20,'LineWidth',2);
+% plot(x(:,1),y(:,1),'b','Linewidth',1);
+% plot(x(:,nj),y(:,nj),'b','LineWidth',1);
+% p0max = max(max(p0))
+% p0min = min(min(p0))
+%
 figure('Name','Mach Number');
 hold on
 daspect([1 1 1]);
