@@ -1,0 +1,30 @@
+This directory contains the source files for the final version of the code with three completed extension.
+
+
+## Test Cases
+The 6 test cases are located in the directory 'testcases' and the flow files have modified parameters to the final/chosen example in the report.
+They can be loaded into the current directory 'flow' and 'geom' files with 
+
+$make NAME
+
+where NAME is the number of the test case i.e. '$make 4' will load the test case 4. 
+Also included is a straight pipe test case which can be loaded with '$make straight' which was used for debugging.
+
+## Code variations
+With the make file three different codes can be compiled for different test cases.
+
+$make euler
+    will compile the default extended code used for the first 4 test cases into the 'Euler' executable.
+
+$make super_eul
+    will compile a supersonic version for test case 4 with a modified flow guess and boundary condition into 'Super_eul' executable.
+
+$make euler_new
+    will compile a 'Euler_new' executable which uses the new_guess for test case 5.
+
+Any of these can be run with 
+$./executable_name. 
+
+## Results
+The results are plotted in output.mat and can be neatly plotted with the included plot_euler.m script.
+Alternatively they are also output in paraview format, or they could be plotted with the teaching-system available 'eulplt' command.
