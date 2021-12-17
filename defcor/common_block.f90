@@ -5,7 +5,7 @@ module common_block
 ! The variables are grouped according to type of use.  Some are needed only
 ! for specific extensions.
 
-      integer, parameter    :: i_max=201, j_max=51 !700 60
+      integer, parameter    :: i_max=250, j_max=80 !700 60
 
 ! Variables associated with the grid
       real, dimension(i_max) :: xlow, ylow, xhigh, yhigh

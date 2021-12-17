@@ -15,11 +15,11 @@ FC = gfortran
 # Option of Compilation
 
 # debug option
-#FFLAGS = -g
+FFLAGS = -g
 
 # select the optimising option by delete # in the following line
 #
-FFLAGS = -O2
+#FFLAGS = -O2
 
 # compile the executable and name it "Euler" using "-o"
 euler : $(OBS)
